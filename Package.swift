@@ -6,7 +6,8 @@ let package = Package(
     name: "SplunkOtel",
     platforms: [
         .iOS(.v11),
-        .macOS(.v10_13)
+        .macOS(.v10_13),
+        .tvOS(.v11)
     ],
     products: [
         .library(name: "SplunkOtel", targets: ["SplunkOtel"])

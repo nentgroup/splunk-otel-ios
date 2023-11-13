@@ -18,7 +18,6 @@ limitations under the License.
 import Foundation
 import SystemConfiguration
 import Network
-import CoreTelephony
 
 struct NetworkInfo {
     var hostConnectionType: String?
@@ -30,6 +29,7 @@ struct NetworkInfo {
 }
 
 #if os(iOS) && !targetEnvironment(macCatalyst)
+import CoreTelephony
 fileprivate var currentNetInfo: NetworkInfo = NetworkInfo()
 fileprivate var netInfoLock = pthread_rwlock_t()
 @available(iOS 12.0, *)

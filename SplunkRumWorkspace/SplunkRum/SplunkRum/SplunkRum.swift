@@ -16,7 +16,9 @@ limitations under the License.
 
 // swiftlint:disable file_length
 import Foundation
+#if canImport(WebKit)
 import WebKit
+#endif
 
 // Make sure the version numbers on the podspec and SplunkRum.swift match
 let SplunkRumVersionString = "0.11.3"
@@ -548,9 +550,11 @@ var splunkRumInitializeCalledTime = Date()
      ones that allow general browsing.  You should call this after the WKWebView is initialized but before it is
      actually used.
      */
+    #if os(iOS)
     @objc public class func integrateWithBrowserRum(_ view: WKWebView) {
         integrateWebViewWithBrowserRum(view: view)
     }
+    #endif
 
     /**
        This check is to determine whether the splunkrum library has been initialized
